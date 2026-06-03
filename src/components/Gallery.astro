@@ -17,9 +17,9 @@ const photos = getPhotos();
 				<Image
 					src={photo.image}
 					alt={photo.alt}
-					widths={[400, 800, 1200]}
-					sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 33vw"
-					loading={i < 3 ? "eager" : "lazy"}
+					widths={[600, 1000, 1600]}
+					sizes="(max-width: 700px) 100vw, 50vw"
+					loading={i < 2 ? "eager" : "lazy"}
 				/>
 			</button>
 		))
@@ -31,7 +31,7 @@ const photos = getPhotos();
 <style>
 	.gallery {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(min(100%, 500px), 1fr));
 		gap: 0.5rem;
 		max-width: var(--max-width);
 		margin-inline: auto;
@@ -45,7 +45,7 @@ const photos = getPhotos();
 		background: var(--surface);
 		cursor: pointer;
 		overflow: hidden;
-		aspect-ratio: 4 / 5;
+		aspect-ratio: 3 / 2;
 		display: block;
 	}
 
