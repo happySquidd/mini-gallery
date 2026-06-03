@@ -1,0 +1,53 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base title="About — Studio">
+	<article class="prose">
+		<h1>About</h1>
+		<p>
+			I'm a photographer based in [City], working in portraiture, landscape,
+			and documentary work. For the past [X] years I've been drawn to quiet
+			moments and natural light — making images that feel honest rather than
+			staged.
+		</p>
+		<p>
+			My work has appeared in [Publication], [Publication], and select private
+			collections. I'm available for editorial commissions, portrait sessions,
+			and prints.
+		</p>
+		<p>
+			This page is placeholder copy — replace it with your own story in
+			<code>src/pages/about.astro</code>.
+		</p>
+	</article>
+</Base>
+
+<style>
+	.prose {
+		max-width: 60ch;
+		margin-inline: auto;
+		padding: clamp(2rem, 8vh, 6rem) var(--gutter);
+	}
+
+	.prose h1 {
+		font-size: clamp(2rem, 5vw, 3rem);
+		font-weight: 600;
+		letter-spacing: -0.01em;
+		margin-bottom: 1.5rem;
+	}
+
+	.prose p {
+		color: var(--text-dim);
+		margin-bottom: 1.25rem;
+		font-size: 1.05rem;
+	}
+
+	.prose code {
+		font-size: 0.9em;
+		color: var(--text);
+		background: var(--surface);
+		padding: 0.1em 0.4em;
+		border-radius: 4px;
+	}
+</style>

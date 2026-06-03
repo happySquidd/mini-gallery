@@ -1,0 +1,72 @@
+---
+import { Image } from "astro:assets";
+import { getPhotos } from "../data/photos";
+import Lightbox from "./Lightbox.astro";
+
+const photos = getPhotos();
+---
+
+<section class="gallery">
+	{
+		photos.map((photo, i) => (
+			<button
+				class="tile"
+				data-lightbox-trigger={i}
+				aria-label={`View ${photo.alt}`}
+			>
+				<Image
+					src={photo.image}
+					alt={photo.alt}
+					widths={[400, 800, 1200]}
+					sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 33vw"
+					loading={i < 3 ? "eager" : "lazy"}
+				/>
+			</button>
+		))
+	}
+</section>
+
+<Lightbox photos={photos} />
+
+<style>
+	.gallery {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+		gap: 0.5rem;
+		max-width: var(--max-width);
+		margin-inline: auto;
+		padding: 0 var(--gutter) var(--gutter);
+	}
+
+	.tile {
+		border: 0;
+		padding: 0;
+		margin: 0;
+		background: var(--surface);
+		cursor: pointer;
+		overflow: hidden;
+		aspect-ratio: 4 / 5;
+		display: block;
+	}
+
+	.tile :global(img) {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition:
+			transform 0.5s ease,
+			opacity 0.3s ease;
+		opacity: 0.92;
+	}
+
+	.tile:hover :global(img),
+	.tile:focus-visible :global(img) {
+		transform: scale(1.03);
+		opacity: 1;
+	}
+
+	.tile:focus-visible {
+		outline: 2px solid var(--text);
+		outline-offset: 2px;
+	}
+</style>
