@@ -20,12 +20,12 @@ export interface Photo {
 
 // --- Your photos -----------------------------------------------------------
 const photos: Photo[] = [
-	{ src: "01.jpg", alt: "Placeholder photograph one" },
-	{ src: "02.jpg", alt: "Placeholder photograph two" },
-	{ src: "03.jpg", alt: "Placeholder photograph three" },
-	{ src: "04.jpg", alt: "Placeholder photograph four" },
-	{ src: "05.jpg", alt: "Placeholder photograph five" },
-	{ src: "06.jpg", alt: "Placeholder photograph six" },
+	{ src: "lightning.jpg", alt: "Lightning strike over the ocean" },
+	{ src: "sunset_beach.jpg", alt: "Sunset at the beach" },
+	{ src: "golden_gate_coast.jpg", alt: "West coast view" },
+	{ src: "dolphins.jpg", alt: "Dolphins playing in the waves" },
+	{ src: "tahoe.jpg", alt: "Lake Tahoe surrounded by mountains" },
+	{ src: "sunset_plane.jpg", alt: "Airplane flying through a sunset" },
 ];
 // ---------------------------------------------------------------------------
 
