@@ -1,44 +1,62 @@
-# Astro Starter Kit: Minimal
+# Minimalistic Photo
 
-```sh
-npm create astro@latest -- --template minimal
-```
+A minimal photography portfolio built with [Astro](https://astro.build). A clean,
+dark, responsive landscape gallery with a fullscreen lightbox — designed for
+nature, landscape, and sunset work.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Features
 
-## 🚀 Project Structure
+- **Landscape gallery** — a responsive grid of wide 3:2 tiles that flows down the
+  page and adapts from one to two columns across screen sizes.
+- **Fullscreen lightbox** — click any photo to open it; every image fits the
+  screen with no scrolling, regardless of orientation. Navigate with the arrow
+  keys or the on-screen controls.
+- **Optimized images** — Astro resizes every photo and serves modern formats
+  (WebP/AVIF) at build time, so the site stays fast.
+- **Three pages** — gallery (home), about, and contact.
 
-Inside of your Astro project, you'll see the following folders and files:
+## Adding photos
+
+Two steps, no code:
+
+1. Drop your image files into [`src/assets/photos/`](src/assets/photos/)
+   (`.jpg`, `.jpeg`, `.png`, `.webp`, or `.avif`).
+2. Add an entry for each one in [`src/data/photos.ts`](src/data/photos.ts):
+
+   ```ts
+   const photos: Photo[] = [
+     { src: "sunset.jpg", alt: "Sun setting over the dunes" },
+     // ...
+   ];
+   ```
+
+The `alt` text is used for screen readers and SEO, so describe each shot. Photos
+work best as landscape; portrait images get center-cropped to fit the grid.
+
+## Project structure
 
 ```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+src/
+├── assets/photos/      # your image files
+├── components/
+│   ├── Gallery.astro   # the responsive landscape grid
+│   └── Lightbox.astro  # the fullscreen viewer
+├── data/
+│   └── photos.ts       # the photo list (edit this to manage the gallery)
+├── layouts/
+│   └── Base.astro      # shared page shell, nav, and global styles
+└── pages/              # index (gallery), about, contact
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Commands
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Run from the project root:
 
-Any static assets, like images, can be placed in the `public/` directory.
+| Command           | Action                                       |
+| :---------------- | :------------------------------------------- |
+| `npm install`     | Install dependencies                         |
+| `npm run dev`     | Start the dev server at `localhost:4321`     |
+| `npm run build`   | Build the production site to `./dist/`       |
+| `npm run preview` | Preview the production build locally         |
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-# mini-gallery
+Requires Node `>=22.12.0`.
